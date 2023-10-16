@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Priyammondal/namaste-react/issues"
   },
-  "homepage": "https://github.com/Priyammondal/namaste-react#readme"
+  "homepage": "https://github.com/Priyammondal/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.10.0"
+  }
 }
