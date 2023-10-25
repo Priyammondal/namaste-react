@@ -1,0 +1,10 @@
+#Episode 3
+
+JSX -> React.createElement (which is an object) -> HTML Element 
+This whole transpilation is done by babel which is govern by Parcel
+babel is just another package which parcel uses to transpile the code before reaching to the js engine.
+
+two ways to create components in react.
+1. Functional component
+2. Class component
+

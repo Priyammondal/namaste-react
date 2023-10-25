@@ -18,15 +18,20 @@ console.log("roort->", root);
 </div> */
 }
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child" },
-    React.createElement("h1", {}, "This is a h1 tag!")
-  )
-);
+// const parent = React.createElement(
+//   "div",
+//   { id: "parent" },
+//   React.createElement(
+//     "div",
+//     { id: "child" },
+//     React.createElement("h1", {}, "This is a h1 tag!")
+//   )
+// );
+const parent =
+  <div id="parent">
+    <h1>This is a h1 tag by jsx!</h1>
+  </div>
+
 // root.render(parent);
 
 console.log("parent-->", parent); // This is nothing but a object
@@ -53,7 +58,7 @@ const parent2 = React.createElement(
   ])
 );
 
-root.render(parent2);
+root.render(parent);
 
 // if There is a tag already present in our html code, in our #root,
 // while rendering, that tag/those tags will be replaced ( not appended, html will first print it on the screen then it will be replaced ) by whatever we
