@@ -8,3 +8,13 @@ two ways to create components in react.
 1. Functional component
 2. Class component
 
+
+React Functional component is a normal javascript function which returns a jsx.
+
+## differnce between react component and React element?
+
+
+In React component any js can be executed. That's why there might be threat fo cross site scripting attack
+through api. but react takes care of it. and it actually doesn't executer every data blindly, it actually filters the data.
+
+

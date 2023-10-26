@@ -27,10 +27,11 @@ console.log("roort->", root);
 //     React.createElement("h1", {}, "This is a h1 tag!")
 //   )
 // );
-const parent =
+const parent = (
   <div id="parent">
     <h1>This is a h1 tag by jsx!</h1>
   </div>
+);
 
 // root.render(parent);
 
@@ -58,8 +59,27 @@ const parent2 = React.createElement(
   ])
 );
 
-root.render(parent);
+// root.render(parent);
 
 // if There is a tag already present in our html code, in our #root,
 // while rendering, that tag/those tags will be replaced ( not appended, html will first print it on the screen then it will be replaced ) by whatever we
 // will be passing inside our render method
+
+const Title = () => <h1>Namste React using JSX 🚀</h1>;
+const NewTitle = () => <h2>Namster React New Title using JSX 🚀</h2>;
+
+// React functional component
+// This is component composition ( component inside component)
+const HeadingComponent = () => {
+  return (
+    <div id="container">
+      <Title />
+      <Title></Title>
+      {/* as react component at the end of the day is a normal function and we can execute any js code inside our component we can call ther functional componet as normal function*/}
+      {NewTitle()}
+      <h1>Namaste React functional component!</h1>
+    </div>
+  );
+};
+
+root.render(<HeadingComponent />);
