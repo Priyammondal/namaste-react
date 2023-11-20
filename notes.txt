@@ -144,3 +144,7 @@ and we should not use index as key.
 #Episode 5
 
 
+From a module only one dafault export is allowed. 
+So when we have to export multiple things from one component we use Named export
+
+export const Variable_name = "..."
