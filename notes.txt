@@ -148,3 +148,43 @@ From a module only one dafault export is allowed.
 So when we have to export multiple things from one component we use Named export
 
 export const Variable_name = "..."
+
+Default export/import 
+
+export default component;
+import Component from "path";
+
+Named export/import
+
+export const Component;
+import {Component} from "path";
+
+## React Hooks
+(Normal utility Javascript functions developed by facebook developers)
+
+- useState() ~ Super powerfull react state Variable
+it returns an array. then we can do the array destrucruring on the fly.
+- useEffect()
+
+Whenever a state variable updates/changes, react rerenders the component.
+The logic of updating the UI is called rerendering.
+React keeps sync between UI layer and data layer that's why its very fast
+ast DOM operations it automatically rerenders the UI as soon as the data/state
+changes.
+
+** React uses Reconciliation algorithm which is known as (React Fiber). => React-16
+React Fiber is a new way to find the div and updating the DOM.
+virtual dom is a representation of actual DOM which is nothing but an object.
+
+## Diff algorithm
+React uses two virtual DOM to update the UI
+Previous Virtual DOM and Updated Virtual DOM
+using this algorithm react keeps track of the differences between thease two virtual DOMs
+and then it will update the actual DOM on every render cycle.
+
+React is fast because it does efficient DOM manipulation using virtual DOM
+https://github.com/acdlite/react-fiber-architecture
+
+
+
+
