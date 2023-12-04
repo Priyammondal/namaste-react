@@ -8,6 +8,7 @@ const styleCard = {
 };
 
 const RestaurantCard = (props) => {
+  console.log("props-->", props);
   const { resData } = props;
 
   const {
@@ -16,8 +17,8 @@ const RestaurantCard = (props) => {
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime,
-  } = resData?.data;
+    sla: { deliveryTime },
+  } = resData;
 
   return (
     <div className="res-card" style={styleCard}>

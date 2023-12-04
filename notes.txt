@@ -187,4 +187,37 @@ https://github.com/acdlite/react-fiber-architecture
 
 
 
+# Episode 6:
+
+1. Monolith architecture
+All the services/usecases (UI, backend, sms service, Authentication, DB) written in
+a single project
+
+
+2. Microservice architecture
+For all the services there are different different projects
+
+How do the services communicate with each other?
+- Through api calls/different different port numbers
+
+- Seperation of concerns -> Follow a single responsibility principle
+
+
+- useEffect()
+This is nothing but a simple js function which takes two arguments
+first is and callback function and second is dependency array
+
+the useEffect function will call the callback function
+after the initial render of the component is done.
+
+we will use it when we want something to happen after the react render cycle is 
+finished.
+
+fetch() is not part of js. it is a part of browser's js engine.
+It is used to make api calls.
+
+
+
+
+
 
