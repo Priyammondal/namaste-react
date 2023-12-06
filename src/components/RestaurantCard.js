@@ -8,7 +8,7 @@ const styleCard = {
 };
 
 const RestaurantCard = (props) => {
-  console.log("props-->", props);
+  // console.log("props-->", props);
   const { resData } = props;
 
   const {

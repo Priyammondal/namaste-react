@@ -173,7 +173,8 @@ ast DOM operations it automatically rerenders the UI as soon as the data/state
 changes.
 
 ** React uses Reconciliation algorithm which is known as (React Fiber). => React-16
-React Fiber is a new way to find the div and updating the DOM.
+React Fiber(new Reconciliation process to efficiently manipulation the DOM) 
+is a new way to find the div and updating the DOM.
 virtual dom is a representation of actual DOM which is nothing but an object.
 
 ## Diff algorithm
@@ -215,6 +216,52 @@ finished.
 
 fetch() is not part of js. it is a part of browser's js engine.
 It is used to make api calls.
+
+
+## conditional rendering 
+rendering according to certain condition
+
+** why we need state variables why not normal js variables?
+
+Reason is when a normal variable got changed the UI doesn't re rendered to show
+the change in the UI. but when a state variable changes it triggers the 
+render process and the UI gets updated with the new changed variable.
+
+if there is a header component and inside it there is a button with text = "login"
+we want to toggle the text between "login" and "logout".
+But the question arries, when we click on the button only the button gets refreshed
+or the whole header component gets re-rendered within which the button is clicked?
+
+=> Answer is react will start the Reconciliation process, 
+evalute between two virtual dom, previous dom and dom with 
+the updated text. Then react will rerender the whole header component but only
+update the button in the dom (because dom manipulation is expensive), 
+which makes react super fast.
+
+
+const [text, setText] = useState("login");
+
+when we clicking the button the text gets changed to "logout"
+but the question is can we change a constant variable?
+no right. then? what is happening behind the scene?
+
+--> when a constant state variable gets changed at the same time the componet gets
+re-rendered with the updated text.The previous const text and the updated const text 
+is completely different hence the js rule being followed.
+
+
+"Why is it behaving the way it is behaving?"
+
+** It is not the virtual DOM that makes react fast, 
+it is the React Fiber, the new Reconciliation algorithm which finds 
+out the differences between two virtual DOM and updates the DOM only when its required 
+and only that portion which is required.
+
+
+
+
+
+
 
 
 
