@@ -259,7 +259,10 @@ and only that portion which is required.
 
 
 
+# Episode 6.2
 
+cors proxy to bypass the cors error
+corsproxy.io
 
 
 

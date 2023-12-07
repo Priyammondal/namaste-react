@@ -15,7 +15,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.6244806999999&page_type=DESKTOP_WEB_LISTING"
-      "https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.022505&lng=72.5713621&str=Chicken&trackingId=undefined&submitAction=SUGGESTION&queryUniqueId=8fcbca3c-4673-2b15-0a8b-006361e56a63&metaData=%7B%22type%22%3A%22DISH%22%2C%22data%22%3A%7B%22vegIdentifier%22%3A%22NONVEG%22%2C%22cloudinaryId%22%3A%22cqlbsjmwngaagned62yc%22%7D%2C%22businessCategory%22%3A%22SWIGGY_FOOD%22%2C%22displayLabel%22%3A%22Dish%22%7D"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.022505&lng=72.5713621&str=Chicken&trackingId=undefined&submitAction=SUGGESTION&queryUniqueId=8fcbca3c-4673-2b15-0a8b-006361e56a63&metaData=%7B%22type%22%3A%22DISH%22%2C%22data%22%3A%7B%22vegIdentifier%22%3A%22NONVEG%22%2C%22cloudinaryId%22%3A%22cqlbsjmwngaagned62yc%22%7D%2C%22businessCategory%22%3A%22SWIGGY_FOOD%22%2C%22displayLabel%22%3A%22Dish%22%7D"
     );
     const res = await data.json();
     const swiggyData =
