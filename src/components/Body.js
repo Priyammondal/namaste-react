@@ -14,19 +14,20 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.6244806999999&page_type=DESKTOP_WEB_LISTING"
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.022505&lng=72.5713621&str=Chicken&trackingId=undefined&submitAction=SUGGESTION&queryUniqueId=8fcbca3c-4673-2b15-0a8b-006361e56a63&metaData=%7B%22type%22%3A%22DISH%22%2C%22data%22%3A%7B%22vegIdentifier%22%3A%22NONVEG%22%2C%22cloudinaryId%22%3A%22cqlbsjmwngaagned62yc%22%7D%2C%22businessCategory%22%3A%22SWIGGY_FOOD%22%2C%22displayLabel%22%3A%22Dish%22%7D"
+      // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.022505&lng=72.5713621&str=Chicken&trackingId=undefined&submitAction=SUGGESTION&queryUniqueId=8fcbca3c-4673-2b15-0a8b-006361e56a63&metaData=%7B%22type%22%3A%22DISH%22%2C%22data%22%3A%7B%22vegIdentifier%22%3A%22NONVEG%22%2C%22cloudinaryId%22%3A%22cqlbsjmwngaagned62yc%22%7D%2C%22businessCategory%22%3A%22SWIGGY_FOOD%22%2C%22displayLabel%22%3A%22Dish%22%7D"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const res = await data.json();
+    console.log(
+      "response-->",
+      res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
     const swiggyData =
-      res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards;
-    setListOfRestaurants(
-      swiggyData.filter((item) => item?.card?.card?.restaurant)
-    );
-    setFilteredRestaurans(
-      swiggyData.filter((item) => item?.card?.card?.restaurant)
-    );
+      res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    setListOfRestaurants(swiggyData);
+    setFilteredRestaurans(swiggyData);
   };
+  console.log("listOfRestaurants-->", listOfRestaurants);
 
   // conditional rendering
 
@@ -45,7 +46,7 @@ const Body = () => {
             onClick={() => {
               if (searchInput.length > 0) {
                 const filteredList = listOfRestaurants.filter((item) =>
-                  item.card.card.restaurant.info.name
+                  item.info.name
                     .toLowerCase()
                     .includes(searchInput.toLowerCase())
                 );
@@ -62,7 +63,7 @@ const Body = () => {
           onClick={() => {
             setFilteredRestaurans(
               listOfRestaurants.filter(
-                (item) => item.card.card.restaurant.info.avgRating >= 4
+                (item) => item.info.avgRating >= 4
               )
             );
             console.log("listOfRestaurants after filter-->", listOfRestaurants);
@@ -85,7 +86,7 @@ const Body = () => {
           <RestaurantCard
             // key={item.card.card.restaurant.info.id}
             key={index}
-            resData={item.card.card.restaurant.info}
+            resData={item.info}
           />
         ))}
       </div>

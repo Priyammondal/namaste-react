@@ -264,6 +264,35 @@ and only that portion which is required.
 cors proxy to bypass the cors error
 corsproxy.io
 
+#Episode 7
+
+useEffect
+-> If no dependency array passed -> will be called after each render 
+-> If empty array passed -> will be called only once after the first render
+-> If any dependency(state) passed in the array -> will be called only when the dependency updates
+
+In a react app we should not use anchor tag because it reloads the page
+Instead we should use <Link> from react-router-dom it doesn't reload the whole page 
+it just refresh the component. That is why react is known for
+single page application.
+
+** 2 types of routing
+1. Server Side routing
+
+suppose there is an index.html, about.html, contact.html
+If I click on the anchor tag(/about.html). It reloads the whole page.
+It send and network call to about.html fetches the html and render it to the web page.
+
+
+2. Client Side routing
+
+In react we use client side routing. We do not make any network call to render
+our page because all the components are already loaded to our app.
+
+
+Link component (react-router-dom) is just a wrapper over normal html anchor tag.
+
+
 
 
 
