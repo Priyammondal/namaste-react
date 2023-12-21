@@ -108,3 +108,8 @@ button:hover {
   border-radius: 10px;
   margin: 15px;
 }
+
+.user-card {
+  padding: 20px;
+  border: 1px solid black;
+}

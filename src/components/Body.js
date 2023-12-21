@@ -14,8 +14,8 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/v3?lat=23.022505&lng=72.5713621&str=Chicken&trackingId=undefined&submitAction=SUGGESTION&queryUniqueId=8fcbca3c-4673-2b15-0a8b-006361e56a63&metaData=%7B%22type%22%3A%22DISH%22%2C%22data%22%3A%7B%22vegIdentifier%22%3A%22NONVEG%22%2C%22cloudinaryId%22%3A%22cqlbsjmwngaagned62yc%22%7D%2C%22businessCategory%22%3A%22SWIGGY_FOOD%22%2C%22displayLabel%22%3A%22Dish%22%7D"
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const res = await data.json();
     console.log(
@@ -31,7 +31,7 @@ const Body = () => {
 
   // conditional rendering
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -82,7 +82,7 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {filteredRestaurans.map((item, index) => (
+        {filteredRestaurans?.map((item, index) => (
           <RestaurantCard
             // key={item.card.card.restaurant.info.id}
             key={index}

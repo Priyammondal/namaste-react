@@ -293,6 +293,76 @@ our page because all the components are already loaded to our app.
 Link component (react-router-dom) is just a wrapper over normal html anchor tag.
 
 
+#Episode 8
+
+class based components are just normal class in react.
+
+React.Component is a class given by react which we are inheriting from react to 
+create class based components.
+
+what is super(props) inside constructor function?
+- When we call this super(props), we are basically calling the constructor of React.Component. So we can say that super() is a reference to the parent class constructor.
+
+React will not recongnize "this" keyword until super() function has been called.
+
+https://www.geeksforgeeks.org/what-is-the-use-of-superprops/
+
+
+Never update state variables directly in classbase components.
+It will lead to inconsistency in code.
+Instead we will use "this.setState"
+
+if there are 10 states in "this.state" object.
+when we update one state value using "this.setState" react won't touch the other 
+states but only the updated object.
+
+
+**lifecycle methods in react**
+
+when a class loades (a new instance of the class) constructor method is called.
+then render is called.
+
+Inside a class component, first constructor function is called and then render 
+method is called and once this class based component mounted on the dom then 
+componentDidMount is called.
+
+constructor -> render -> componentDidMount
+
+we do api calls inside componentDidMount or in case of functional component inside
+useEffect -> but why do we do that?
+
+The reason is as soon as the component mounts, we show something on the UI.
+then we make api calls and according to the results, we updates the UI again.
+In this way user gets a better user experience.
+
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+React has two phases
+1. render phase
+In this phase first constructor will be called and then render
+2. commit phase
+In this phase react updates the dom (most expensive step - takes time) and 
+then componentDidMount will be called
+
+suppose inside a parent multiple children component is present
+so what would be the life cycle?
+
+constructor of parent -> render of parent -> React will batch the render phase of
+all the child components together for more optimized performance because commit phase
+is expensive, DOM manupulation will be there.
+
+After compleating the render phase of all the child components react will complete 
+the commit phase of all the child components then finally when all the child 
+components are mounted on the DOM then Parent component's componentDidMount will be called.
+
+**** api call in class component ****
+
+we can make componentDidMount function async to make asynchronous calls
+
+async componentDidMount(){
+  const data = await fetch("url");
+  const json = data.json();
+}
 
 
 
