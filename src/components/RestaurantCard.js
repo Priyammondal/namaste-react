@@ -10,7 +10,7 @@ const styleCard = {
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  console.log("resData-->", resData);
+  // console.log("resData-->", resData);
 
   const {
     id,

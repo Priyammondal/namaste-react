@@ -365,6 +365,18 @@ async componentDidMount(){
 }
 
 
+with the api call we got new data, then again render() method will be called.
+component will re-render with the new data then componentDidUpdate() will be called.
+After that if we change the route, basically if we try to unmount the component, 
+just before that componentWillUnmount() will be called.
+
+
+if in our code somewhere we use setInterval, setTimeOut we need to clear those 
+out before leaving the component.
+React is a single page application, It may seems like we are leaving the page, 
+in actual it is just mounting and unmounting the components.
+
+
 
 
 

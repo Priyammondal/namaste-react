@@ -18,16 +18,16 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const res = await data.json();
-    console.log(
-      "response-->",
-      res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // console.log(
+    //   "response-->",
+    //   res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
     const swiggyData =
       res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     setListOfRestaurants(swiggyData);
     setFilteredRestaurans(swiggyData);
   };
-  console.log("listOfRestaurants-->", listOfRestaurants);
+  // console.log("listOfRestaurants-->", listOfRestaurants);
 
   // conditional rendering
 
@@ -62,9 +62,7 @@ const Body = () => {
         <button
           onClick={() => {
             setFilteredRestaurans(
-              listOfRestaurants.filter(
-                (item) => item.info.avgRating >= 4
-              )
+              listOfRestaurants.filter((item) => item.info.avgRating >= 4)
             );
             console.log("listOfRestaurants after filter-->", listOfRestaurants);
           }}
