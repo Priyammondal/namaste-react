@@ -1,35 +1,21 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
-
+import useRestaurants from "../utils/useRestaurants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredRestaurans, setFilteredRestaurans] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [listOfRestaurants, filteredRestaurans, setFilteredRestaurans] =
+    useRestaurants();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return (
+      <h1>
+        Looks like you are offline!! Please check your internet connection.
+      </h1>
     );
-    const res = await data.json();
-    // console.log(
-    //   "response-->",
-    //   res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
-    const swiggyData =
-      res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    setListOfRestaurants(swiggyData);
-    setFilteredRestaurans(swiggyData);
-  };
-  // console.log("listOfRestaurants-->", listOfRestaurants);
-
-  // conditional rendering
+  }
 
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
@@ -64,7 +50,6 @@ const Body = () => {
             setFilteredRestaurans(
               listOfRestaurants.filter((item) => item.info.avgRating >= 4)
             );
-            console.log("listOfRestaurants after filter-->", listOfRestaurants);
           }}
           className="filter-btn"
         >
@@ -81,11 +66,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurans?.map((item, index) => (
-          <RestaurantCard
-            // key={item.card.card.restaurant.info.id}
-            key={index}
-            resData={item.info}
-          />
+          <RestaurantCard key={index} resData={item.info} />
         ))}
       </div>
     </div>

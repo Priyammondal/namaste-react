@@ -379,6 +379,28 @@ in actual it is just mounting and unmounting the components.
 
 
 
+** Episode 9 **
+
+For better code readability, we should use custom hooks.
+it is not mandetory to apply "use" before the custom hook name but it is a 
+general convenstion to follow.
+
+if we use another name that doesn't start with "use" at starting it will work fine.
+but sometime liters that set for React throws errors, so its recommended to follow 
+the convenstion.
+
+For better performance  we use chunking 
+alternatively we can say the same thing as below.
+Code Splitting
+Dynamic Bundling
+lazy loading
+on demand loading
+dynamic import
+
+It will load the js file realted to the route only when the route gets visited.
+
+
+
 
 
 
