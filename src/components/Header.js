@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import LOGO_URL from "../assets/food_express_logo.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -8,14 +8,14 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
+    <div className="header flex justify-between items-center shadow-lg mb-4 p-2 bg-pink-200 sm:bg-yellow-200 md:bg-purple-200 lg:bg-green-200 xl:bg-blue-200">
       <div className="logo-container">
         <Link to="/">
-          <img className="logo" src={LOGO_URL} />
+          <img className="w-28" src={LOGO_URL} alt="logo" />
         </Link>
       </div>
       <div className="nav-items">
-        <ul>
+        <ul className="flex p-4 m-4 gap-4">
           <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>

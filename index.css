@@ -1,4 +1,4 @@
-a {
+/* a {
   text-decoration: none;
   color: black;
 }
@@ -36,7 +36,6 @@ button:hover {
 
 .nav-items > ul > li {
   padding: 10px;
-  /* margin: 10px; */
   cursor: pointer;
 }
 
@@ -112,4 +111,10 @@ button:hover {
 .user-card {
   padding: 20px;
   border: 1px solid black;
-}
+} */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

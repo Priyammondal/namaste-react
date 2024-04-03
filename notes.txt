@@ -399,6 +399,13 @@ dynamic import
 
 It will load the js file realted to the route only when the route gets visited.
 
+** Episode 10 ** 
+
+tailwind css is another way to write css in our project.
+Parcel/tailwind css uses "postcss" to understand tailwind css.
+
+
+
 
 
 
