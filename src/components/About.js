@@ -15,7 +15,7 @@ class About extends React.Component {
 
   async componentDidMount() {
     console.log("parent componentDidMount");
-    const data = await fetch("https://api.github.com/users/amartyakumarsaha");
+    const data = await fetch("https://api.github.com/users/Priyammondal");
     const json = await data.json();
     console.log("json--->", json);
     this.setState({
@@ -34,15 +34,15 @@ class About extends React.Component {
     const { avatar_url, name, location, email } = this.state.userInfo;
     return (
       <div>
-        <h1>About (class based component)</h1>
-        <h2>This is a Namaste React Web Series</h2>
+        {/* <h1>About (class based component)</h1>
+        <h2>This is a Namaste React Web Series</h2> */}
 
-        <UserClass
+        {/* <UserClass
           avatar_url={avatar_url}
           name={name}
           location={location}
           email={email}
-        />
+        /> */}
 
         <User
           avatar_url={avatar_url}

@@ -6,7 +6,6 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  // console.log("resData-->", resData);
 
   const {
     id,
@@ -22,7 +21,7 @@ const RestaurantCard = (props) => {
     <Link to={`restaurants/${id}`}>
       <div className="m-4 p-4 w-[300px] rounded-lg bg-gray-100 hover:bg-gray-300">
         <img
-          className="rounded-lg"
+          className="rounded-lg h-40 w-full object-cover"
           src={CDN_URL + cloudinaryImageId}
           alt="res-logo"
         />
@@ -35,5 +34,17 @@ const RestaurantCard = (props) => {
     </Link>
   );
 };
-
 export default RestaurantCard;
+
+export const WithPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};

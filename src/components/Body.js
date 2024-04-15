@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { WithPromotedLabel } from "./RestaurantCard";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import useRestaurants from "../utils/useRestaurants";
@@ -7,7 +7,6 @@ const Body = () => {
   const [searchInput, setSearchInput] = useState("");
   const [listOfRestaurants, filteredRestaurans, setFilteredRestaurans] =
     useRestaurants();
-
   const onlineStatus = useOnlineStatus();
   if (!onlineStatus) {
     return (
@@ -16,6 +15,9 @@ const Body = () => {
       </h1>
     );
   }
+  console.log("listOfRestaurants-->", listOfRestaurants);
+
+  const RestaurantCardPromoted = WithPromotedLabel(RestaurantCard);
 
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
@@ -70,9 +72,13 @@ const Body = () => {
         </button>
       </div>
       <div className="flex flex-wrap">
-        {filteredRestaurans?.map((item, index) => (
-          <RestaurantCard key={index} resData={item.info} />
-        ))}
+        {filteredRestaurans?.map((item, index) =>
+          item.info.avgRating > 4.5 ? (
+            <RestaurantCardPromoted key={index} resData={item.info} />
+          ) : (
+            <RestaurantCard key={index} resData={item.info} />
+          )
+        )}
       </div>
     </div>
   );
