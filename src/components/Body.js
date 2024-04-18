@@ -53,7 +53,7 @@ const Body = () => {
         <button
           onClick={() => {
             setFilteredRestaurans(
-              listOfRestaurants.filter((item) => item.info.avgRating >= 4)
+              listOfRestaurants.filter((item) => item.info.avgRating > 4.5)
             );
           }}
           className="filter-btn m-4 bg-gray-400 px-4 rounded"
